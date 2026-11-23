@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="City General Hospital services, doctor profiles, and online patient appointment booking.">
+  <title>City General Hospital | Patient Appointment Portal</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      color: black;
+      background-color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: teal;
+      color: white;
+      padding: 20px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 15px;
+    }
+
+    nav a {
+      color: white;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    section, article, aside {
+      background-color: whitesmoke;
+      border: 1px solid gray;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid black;
+      box-sizing: border-box;
+    }
+
+    fieldset {
+      border: 1px solid gray;
+      margin-top: 15px;
+      padding: 10px;
+    }
+
+    legend {
+      font-weight: bold;
+    }
+
+    .option-label {
+      font-weight: normal;
+      margin-top: 5px;
+    }
+
+    button {
+      background-color: teal;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      margin-top: 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* High contrast keyboard focus outline */
+    a:focus, button:focus, input:focus, select:focus, textarea:focus {
+      outline: 3px solid orange;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header & Navigation (Refactored from generic divs) -->
+  <header>
+    <h1>City General Hospital</h1>
+    <p>Quality healthcare services and online appointment booking.</p>
+    <nav aria-label="Primary Navigation">
+      <ul>
+        <li><a href="#services">Hospital Services</a></li>
+        <li><a href="#doctors">Our Doctors</a></li>
+        <li><a href="#appointment">Book Appointment</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Section 1: Hospital Services -->
+    <section id="services">
+      <h2>Hospital Services</h2>
+      <ul>
+        <li><strong>24/7 Emergency Care:</strong> Immediate trauma and urgent medical attention.</li>
+        <li><strong>Outpatient Consultations:</strong> Specialist checkups across Cardiology, Orthopedics, and Pediatrics.</li>
+        <li><strong>Diagnostic Lab:</strong> Blood tests, X-rays, and MRI scanning.</li>
+      </ul>
+    </section>
+
+    <!-- Section 2: Doctor Information -->
+    <section id="doctors">
+      <h2>Doctor Information</h2>
+
+      <article>
+        <h3>Dr. Ananya Sharma</h3>
+        <p><strong>Department:</strong> Cardiology | <strong>Experience:</strong> 12 Years</p>
+        <p>Available Monday to Friday, 10:00 AM – 2:00 PM.</p>
+      </article>
+
+      <article>
+        <h3>Dr. Rajesh Verma</h3>
+        <p><strong>Department:</strong> General Medicine | <strong>Experience:</strong> 9 Years</p>
+        <p>Available Monday to Saturday, 4:00 PM – 8:00 PM.</p>
+      </article>
+    </section>
+
+    <!-- Section 3: Accessible Patient Appointment Form -->
+    <section id="appointment">
+      <h2>Book Patient Appointment</h2>
+      <p>Fields marked with * are required.</p>
+
+      <form action="#" method="post">
+
+        <!-- Patient Details with Proper Input Types & Validation -->
+        <label for="patient-name">Patient Full Name *</label>
+        <input type="text" id="patient-name" name="patient_name" required>
+
+        <label for="patient-email">Email Address *</label>
+        <input type="email" id="patient-email" name="patient_email" required>
+
+        <label for="patient-phone">Phone Number (10 digits) *</label>
+        <input type="tel" id="patient-phone" name="patient_phone" pattern="[0-9]{10}" placeholder="9876543210" required>
+
+        <!-- Department Dropdown -->
+        <label for="department">Select Department *</label>
+        <select id="department" name="department" required>
+          <option value="">-- Choose Department --</option>
+          <option value="cardiology">Cardiology</option>
+          <option value="general">General Medicine</option>
+          <option value="orthopedics">Orthopedics</option>
+          <option value="pediatrics">Pediatrics</option>
+        </select>
+
+        <!-- Date Picker -->
+        <label for="appt-date">Preferred Appointment Date *</label>
+        <input type="date" id="appt-date" name="appt_date" required>
+
+        <!-- Radio Buttons for Time Slot -->
+        <fieldset>
+          <legend>Preferred Time Slot *</legend>
+          <label class="option-label" for="slot-morning">
+            <input type="radio" id="slot-morning" name="time_slot" value="morning" required> Morning (9:00 AM – 12:00 PM)
+          </label>
+          <label class="option-label" for="slot-afternoon">
+            <input type="radio" id="slot-afternoon" name="time_slot" value="afternoon"> Afternoon (1:00 PM – 4:00 PM)
+          </label>
+          <label class="option-label" for="slot-evening">
+            <input type="radio" id="slot-evening" name="time_slot" value="evening"> Evening (5:00 PM – 8:00 PM)
+          </label>
+        </fieldset>
+
+        <!-- Symptoms Textarea -->
+        <label for="symptoms">Reason for Visit / Symptoms</label>
+        <textarea id="symptoms" name="symptoms" rows="4"></textarea>
+
+        <button type="submit">Confirm Appointment</button>
+      </form>
+    </section>
+
+    <!-- Aside: Emergency Contact Info -->
+    <aside>
+      <h2>Emergency Helpline</h2>
+      <p>For urgent medical emergencies, call our 24/7 ambulance desk at <strong>108</strong> or <strong>+91-863-2224444</strong>.</p>
+    </aside>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 City General Hospital. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

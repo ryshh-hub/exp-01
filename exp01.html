@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Activity Management Portal</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      color: black;
+      background-color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: navy;
+      color: white;
+      padding: 20px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 15px;
+    }
+
+    nav a {
+      color: white;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    section, article, aside {
+      background-color: whitesmoke;
+      border: 1px solid gray;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid black;
+      box-sizing: border-box;
+    }
+
+    fieldset {
+      border: 1px solid gray;
+      margin-top: 15px;
+      padding: 10px;
+    }
+
+    legend {
+      font-weight: bold;
+    }
+
+    .option-label {
+      font-weight: normal;
+      margin-top: 5px;
+    }
+
+    button {
+      background-color: navy;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      margin-top: 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Keyboard focus outline for accessibility */
+    a:focus, button:focus, input:focus, select:focus, textarea:focus {
+      outline: 3px solid orange;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header and Navigation -->
+  <header>
+    <h1>University Student Activity Portal</h1>
+    <p>Explore campus clubs and register for upcoming events.</p>
+    <nav aria-label="Main Menu">
+      <ul>
+        <li><a href="#events">Upcoming Events</a></li>
+        <li><a href="#register">Register Now</a></li>
+        <li><a href="#announcements">Announcements</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Events Section -->
+    <section id="events">
+      <h2>Upcoming Events</h2>
+
+      <article>
+        <h3>Annual Tech Hackathon</h3>
+        <p><strong>Date:</strong> November 28, 2026 | <strong>Venue:</strong> Main Auditorium</p>
+        <p>Join a team of 4 students to build coding and hardware projects in 24 hours.</p>
+      </article>
+
+      <article>
+        <h3>College Cultural Fest</h3>
+        <p><strong>Date:</strong> December 5, 2026 | <strong>Venue:</strong> Open Air Theatre</p>
+        <p>An evening of music, dance, and drama organized by the student council.</p>
+      </article>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section id="register">
+      <h2>Event Registration Form</h2>
+      <p>Please fill out all required fields marked with *.</p>
+
+      <form action="#" method="post">
+
+        <!-- Text Fields -->
+        <label for="fullname">Full Name *</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="rollno">Student Roll Number *</label>
+        <input type="text" id="rollno" name="rollno" required>
+
+        <label for="email">College Email *</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- Dropdown -->
+        <label for="event">Choose an Event *</label>
+        <select id="event" name="event" required>
+          <option value="">-- Select Event --</option>
+          <option value="hackathon">Annual Tech Hackathon</option>
+          <option value="cultural">College Cultural Fest</option>
+          <option value="workshop">Robotics Workshop</option>
+        </select>
+
+        <!-- Radio Buttons -->
+        <fieldset>
+          <legend>Year of Study *</legend>
+          <label class="option-label" for="year1">
+            <input type="radio" id="year1" name="year" value="1" required> 1st Year
+          </label>
+          <label class="option-label" for="year2">
+            <input type="radio" id="year2" name="year" value="2"> 2nd Year
+          </label>
+          <label class="option-label" for="year3">
+            <input type="radio" id="year3" name="year" value="3"> 3rd Year
+          </label>
+          <label class="option-label" for="year4">
+            <input type="radio" id="year4" name="year" value="4"> 4th Year
+          </label>
+        </fieldset>
+
+        <!-- Checkboxes -->
+        <fieldset>
+          <legend>Club Interests</legend>
+          <label class="option-label" for="coding">
+            <input type="checkbox" id="coding" name="interest" value="coding"> Coding Club
+          </label>
+          <label class="option-label" for="music">
+            <input type="checkbox" id="music" name="interest" value="music"> Music and Dance
+          </label>
+          <label class="option-label" for="sports">
+            <input type="checkbox" id="sports" name="interest" value="sports"> Sports Club
+          </label>
+        </fieldset>
+
+        <!-- Textarea -->
+        <label for="notes">Special Requirements or Notes</label>
+        <textarea id="notes" name="notes" rows="4"></textarea>
+
+        <button type="submit">Submit Registration</button>
+      </form>
+    </section>
+
+    <!-- Aside Section -->
+    <aside id="announcements">
+      <h2>Club Announcements</h2>
+      <ul>
+        <li>Debate club auditions close this Friday.</li>
+        <li>Photography club meets every Saturday morning at 7 AM.</li>
+      </ul>
+    </aside>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 University Student Portal. Contact: <a href="mailto:events@university.edu" style="color: white;">events@university.edu</a></p>
+  </footer>
+</body>
+</html>

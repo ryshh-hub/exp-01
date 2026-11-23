@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="QuickBite online food ordering and restaurant discovery website.">
+  <title>QuickBite | Food Delivery & Restaurants</title>
+
+  <style>
+    /* Mobile-First Base Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: black;
+      line-height: 1.5;
+    }
+
+    /* 1. Responsive Header & Navbar using Flexbox */
+    header {
+      background-color: firebrick;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* Food Categories using Flexbox */
+    .category-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .category-tag {
+      background-color: whitesmoke;
+      border: 1px solid gray;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    /* 2. Restaurant Listing Grid (Mobile: 1 column) */
+    .restaurant-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    /* Container Query Wrapper */
+    .card-wrapper {
+      container-type: inline-size;
+    }
+
+    .restaurant-card {
+      background-color: whitesmoke;
+      border: 1px solid lightgray;
+      border-radius: 8px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    /* Hover Effect */
+    .restaurant-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 10px lightgray;
+      border-color: firebrick;
+    }
+
+    .badge {
+      background-color: gold;
+      color: black;
+      padding: 3px 8px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .order-btn {
+      background-color: firebrick;
+      color: white;
+      border: none;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .order-btn:hover {
+      background-color: darkred;
+    }
+
+    footer {
+      background-color: firebrick;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+
+    /* Container Query: Adjust card layout when card container is wider than 350px */
+    @container (min-width: 350px) {
+      .restaurant-card h3 {
+        font-size: 1.3rem;
+        color: firebrick;
+      }
+    }
+
+    /* 3. Mobile-First Media Queries */
+    /* Tablet View (768px and above) */
+    @media (min-width: 768px) {
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .restaurant-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Desktop View (1024px and above) */
+    @media (min-width: 1024px) {
+      .restaurant-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Responsive Flexbox Header -->
+  <header>
+    <h1>QuickBite Delivery</h1>
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#restaurants">Restaurants</a></li>
+        <li><a href="#menus">Popular Menus</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Food Categories Section -->
+    <section id="categories">
+      <h2>Explore Food Categories</h2>
+      <div class="category-list">
+        <span class="category-tag">Biryani</span>
+        <span class="category-tag">South Indian</span>
+        <span class="category-tag">Pizza & Burgers</span>
+        <span class="category-tag">Chinese</span>
+        <span class="category-tag">Desserts</span>
+      </div>
+    </section>
+
+    <!-- Restaurant Listing Section (6 Cards in CSS Grid) -->
+    <section id="restaurants">
+      <h2>Top Restaurants Near You</h2>
+
+      <div class="restaurant-grid">
+
+        <!-- Card 1 -->
+        <div class="card-wrapper">
+          <article class="restaurant-card">
+            <div>
+              <span class="badge">4.5 ★</span>
+              <h3>Spice Garden Biryani</h3>
+              <p><strong>Cuisine:</strong> Hyderabadi, North Indian</p>
+              <p><strong>Popular Menu:</strong> Chicken Dum Biryani, Paneer Tikka (₹250 for one)</p>
+            </div>
+            <button class="order-btn">View Menu</button>
+          </article>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-wrapper">
+          <article class="restaurant-card">
+            <div>
+              <span class="badge">4.3 ★</span>
+              <h3>Udupi Tiffin Center</h3>
+              <p><strong>Cuisine:</strong> South Indian, Breakfast</p>
+              <p><strong>Popular Menu:</strong> Masala Dosa, Idli Vada, Filter Coffee (₹120 for one)</p>
+            </div>
+            <button class="order-btn">View Menu</button>
+          </article>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-wrapper">
+          <article class="restaurant-card">
+            <div>
+              <span class="badge">4.6 ★</span>
+              <h3>Oven Fresh Pizzeria</h3>
+              <p><strong>Cuisine:</strong> Italian, Fast Food</p>
+              <p><strong>Popular Menu:</strong> Margherita Pizza, Garlic Breadsticks (₹300 for one)</p>
+            </div>
+            <button class="order-btn">View Menu</button>
+          </article>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card-wrapper">
+          <article class="restaurant-card">
+            <div>
+              <span class="badge">4.2 ★</span>
+              <h3>Dragon Wok Express</h3>
+              <p><strong>Cuisine:</strong> Indo-Chinese, Noodles</p>
+              <p><strong>Popular Menu:</strong> Veg Hakka Noodles, Chilli Paneer (₹200 for one)</p>
+            </div>
+            <button class="order-btn">View Menu</button>
+          </article>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card-wrapper">
+          <article class="restaurant-card">
+            <div>
+              <span class="badge">4.4 ★</span>
+              <h3>Burger Barn</h3>
+              <p><strong>Cuisine:</strong> American, Snacks</p>
+              <p><strong>Popular Menu:</strong> Crispy Chicken Burger, Peri-Peri Fries (₹180 for one)</p>
+            </div>
+            <button class="order-btn">View Menu</button>
+          </article>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card-wrapper">
+          <article class="restaurant-card">
+            <div>
+              <span class="badge">4.7 ★</span>
+              <h3>Sweet Cravings Bakery</h3>
+              <p><strong>Cuisine:</strong> Desserts, Beverages</p>
+              <p><strong>Popular Menu:</strong> Chocolate Truffle Pastry, Cold Coffee (₹150 for one)</p>
+            </div>
+            <button class="order-btn">View Menu</button>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 QuickBite Food Delivery. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
